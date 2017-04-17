@@ -1,0 +1,37 @@
+{
+  "name": "hot_reads",
+  "version": "1.0.0",
+  "description": "Client for URLLockBox",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.15.2",
+    "knex": "^0.12.9",
+    "pg": "^6.1.5",
+    "pug": "^2.0.0-beta11"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "nodemon": "^1.11.0",
+    "request": "^2.81.0"
+  },
+  "scripts": {
+    "test": "mocha",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wlffann/hot-reads.git"
+  },
+  "keywords": [
+    "express",
+    "hot",
+    "reads"
+  ],
+  "author": "Annie Wolff",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wlffann/hot-reads/issues"
+  },
+  "homepage": "https://github.com/wlffann/hot-reads#readme"
+}
