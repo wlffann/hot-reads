@@ -20,7 +20,7 @@ app.get('/', (request, response) => {
 })
 
 app.get('/api/v1/top_reads', (request, response) => {
-  database.select().table('reads').orderBy('count', 'desc').limit(10)
+  database.select('url').table('reads').orderBy('count', 'desc').limit(10)
   .then((top_reads)=>{response.json(top_reads)})
 })
 
