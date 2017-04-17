@@ -19,6 +19,11 @@ app.get('/', (request, response) => {
   .then((reads) => response.render('index', {title: 'Hot Reads!', top_reads: reads}))
 })
 
+app.get('/api/v1/top_reads', (request, response) => {
+  database.select().table('reads').orderBy('count', 'desc').limit(10)
+  .then((top_reads)=>{response.json(top_reads)})
+})
+
 app.post('/', (request, response) => {
   let link_url = request.body.url
   database.select().from('reads').where('url', request.body.url).limit(1)
