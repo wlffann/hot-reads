@@ -22,7 +22,7 @@ app.get('/', (request, response) => {
 
 app.post('/', (request, response) => {
   let link_url = request.body.url
-  database.select().from('reads').where('url', link_url).limit(1)
+  database.select().from('reads').where('url',request. body.url).limit(1)
   .then((link) => {
     if (link.length == 0) {
       database('reads').insert({url: link_url, count: 1, created_at: new Date})
