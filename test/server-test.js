@@ -58,7 +58,7 @@ describe('Server', () => {
 
     it('should return title', (done) => {
       this.request.get('/', (error, response) => {
-       if (error) { done(error) }
+        if (error) { done(error) }
         assert.include(response.body, 'Hot Reads', 'body contains title');
         done();
       });
@@ -66,10 +66,36 @@ describe('Server', () => {
     
     it('should return top links', (done) => {
       this.request.get('/', (error, response) => {
-       if (error) { done(error) }
+        if (error) { done(error) }
         assert.include(response.body, 'http://www.turing.io', 'body contains top link');
         done();
       });
     })
   });
+
+  describe('POST /', () => {
+    it('should return a 201', (done) => {
+      this.request.post({url: '/', form: {"link": {"url": "https://agile-ocean-54614.herokuapp.com/"}}}, (error, response) => {
+        if (error) { done(error) }
+        assert.equal(response.statusCode, 201);
+        done();
+      });
+    })
+
+    it('should create a read for the url if not saved', (done) => {
+      this.request.post({url: '/', form: {"link": {"url": "https://agile-ocean-54614.herokuapp.com/"}}}, (error, response) => {
+        if (error) { done(error) }
+        assert.equal(response.statusCode, 201);
+        done();
+      })
+    })
+
+    it('should update a read for a link that has already been saved', (done) => {
+      this.request.post({url: '/', form: {"link": {"url": "http://www.turing.io"}}}, (error, response) => {
+        if (error) { done(error) }
+        assert.equal(response.statusCode, 202);
+        done();
+      })
+    })
+  })
 });

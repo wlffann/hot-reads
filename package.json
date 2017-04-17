@@ -4,6 +4,7 @@
   "description": "Client for URLLockBox",
   "main": "index.js",
   "dependencies": {
+    "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "knex": "^0.12.9",
     "pg": "^6.1.5",
