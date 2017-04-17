@@ -4,11 +4,12 @@ const environment = process.env.NODE_ENV || 'development';
 const configuration = require('./knexfile')[environment];
 const database = require('knex')(configuration);
 const bodyParser = require('body-parser')
+const cors = require('cors')
+var pug = require('pug');
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
-
-var pug = require('pug');
+app.use(cors())
 
 app.set('view engine', 'pug');
 app.set('port', process.env.PORT || 5000)
