@@ -21,7 +21,7 @@ app.get('/', (request, response) => {
 })
 
 app.post('/', (request, response) => {
-  let link_url = request.body.link.url
+  let link_url = request.body.url
   database.select().from('reads').where('url', link_url).limit(1)
   .then((link) => {
     if (link.length == 0) {

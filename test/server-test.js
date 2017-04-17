@@ -75,7 +75,7 @@ describe('Server', () => {
 
   describe('POST /', () => {
     it('should return a 201', (done) => {
-      this.request.post({url: '/', form: {"link": {"url": "https://agile-ocean-54614.herokuapp.com/"}}}, (error, response) => {
+      this.request.post({url: '/', form: {"url": "https://agile-ocean-54614.herokuapp.com/"}}, (error, response) => {
         if (error) { done(error) }
         assert.equal(response.statusCode, 201);
         done();
@@ -83,7 +83,7 @@ describe('Server', () => {
     })
 
     it('should create a read for the url if not saved', (done) => {
-      this.request.post({url: '/', form: {"link": {"url": "https://agile-ocean-54614.herokuapp.com/"}}}, (error, response) => {
+      this.request.post({url: '/', form: {"url": "https://agile-ocean-54614.herokuapp.com/"}}, (error, response) => {
         if (error) { done(error) }
         assert.equal(response.statusCode, 201);
         done();
@@ -91,7 +91,7 @@ describe('Server', () => {
     })
 
     it('should update a read for a link that has already been saved', (done) => {
-      this.request.post({url: '/', form: {"link": {"url": "http://www.turing.io"}}}, (error, response) => {
+      this.request.post({url: '/', form: {"url": "http://www.turing.io"}}, (error, response) => {
         if (error) { done(error) }
         assert.equal(response.statusCode, 202);
         done();
