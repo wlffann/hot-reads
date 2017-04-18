@@ -7,6 +7,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 var pug = require('pug');
 
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
 app.use(cors())
 

@@ -98,4 +98,22 @@ describe('Server', () => {
       })
     })
   })
+
+  describe('GET /api/v1/top_links', () => {
+    it('returns a 200', (done) => {
+      this.request.get({url: '/api/v1/top_reads'}, (error, response) => {
+        if (error) { done(error) }      
+        assert.equal(response.statusCode, 200);
+        done();
+      })
+    })
+
+    it('returns the urls of the top reads', (done) => {
+      this.request.get({url: '/api/v1/top_reads'}, (error, response) => {
+        if (error) { done(error) }
+        assert.equal(JSON.parse(response.body)[0].url, "http://www.turing.io");
+        done();
+      })
+    })
+  })
 });
